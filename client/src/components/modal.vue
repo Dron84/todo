@@ -30,9 +30,11 @@
         },
         methods: {
             onSuccess(){
+                //проброс события выше
                 this.$emit('modalSuccess', 'click')
             },
             onError(){
+                //проброс события выше
                 this.$emit('modalError', 'click')
             }
         }

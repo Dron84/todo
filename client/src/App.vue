@@ -51,18 +51,18 @@
             editTask,
         },
         methods: {
-            getTodo() {
-                const {data} = this.$store.dispatch('getTodo')
-                if(data){
-                    return this.$store.getters.getTodoList
-                }
+            getTodo(){
+                //Получение листа из vuex store
+                return this.$store.getters.getTodoList
             },
             onedit(item) {
+                //Переход в редкатирование в To Do листе
                 this.editTaskShow = true
                 this.addTaskShow = false
                 this.editTask=item
             },
             ondelete(item) {
+                //Удалени в To Do листе для модального окна
                 this.modal= {
                     modalHeader: 'Удалить ToDo',
                     modalShow: true,
@@ -72,11 +72,12 @@
                     errorShow: true,
                 }
                 this.$store.dispatch('modalData',{whatDo: 'delete', data: item})
-                // this.$store.commit('modalData', {whatDo: 'delete', data: item})
-                // console.log('item delete', item)
+                this.addTaskShow =false
+                this.editTaskShow = false
             },
             onCancel(){
-                this.modal= {
+                //Отменить изменения в To Do листе для модального окна
+                this.modal = {
                     modalHeader: 'Отменить изменения ToDo',
                     modalShow: true,
                     successText: 'Отменить',
@@ -87,32 +88,34 @@
                 this.$store.commit('modalData', {whatDo: 'cancel', data: this.editTask})
             },
             onAdd(){
+                // Управление окном Добавление элемента
                 this.addTaskShow = !this.addTaskShow
                 this.editTaskShow = false
             },
             addTask(item){
-                this.$store.dispatch('addItem', item)
+                this.$store.dispatch('addItem', item) // Добавление элемента
             },
             removeItem(){
-                this.ondelete(this.editTask)
+                this.ondelete(this.editTask) // удаление элемента
             },
             modalClick(type) {
+                //модальный клик по кнопки потверждения
                 if (type === 'success') {
                     this.modal.modalShow = false
-                    const data = this.$store.getters.getModalData
-                    if(data.whatDo ==='delete'){
+                    const data = this.$store.getters.getModalData // получение данных из модалки
+                    if(data.whatDo ==='delete'){//если происходило удаление элемента
                         this.$store.dispatch('deleteItem',data.data)
                         this.editTaskShow = false
-                    }else if(data.whatDo==='cancel'){
+                    }else if(data.whatDo==='cancel'){//если происходило отмена изменений элемента
                         this.editTaskShow = false
                     }
-                } else {
+                } else { //модальный клик по кнопки отмены
                     this.modal.modalShow = false
                 }
             }
         },
         mounted(){
-            this.getTodo()
+            this.$store.dispatch('getTodo')
         }
     }
 </script>

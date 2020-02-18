@@ -10,6 +10,7 @@
         name: "navbar",
         methods:{
             addClick(){
+                //событие по нажатию на адд
                 this.$emit('add')
             }
         },

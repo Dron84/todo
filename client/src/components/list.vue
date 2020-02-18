@@ -22,6 +22,7 @@
         },
         methods:{
             remItem(index){
+                //событие удаления и проброс выше
                 this.$emit('remItem',index)
             }
         },

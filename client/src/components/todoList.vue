@@ -4,7 +4,7 @@
             <div class="description">
                 <span class="name">{{item.name}}</span>
                 <div class="description_list">
-                    <div v-for="row in item.list" :key="row.name">
+                    <div class="desc_item" v-for="row in item.list" :key="row.name">
                         <checkbox :checked="row.done" :id="row.name.replace(' ','_')" :disabled="true" :caption="row.name" />
                     </div>
                 </div>
@@ -22,13 +22,15 @@
         name: "todoList",
         components:{checkbox},
         props: {
-            todolist: {type: Array}
+            todolist: null
         },
         methods: {
             openEdit(item){
+                //событие редактирование и проброс выше
               this.$emit('Edit', item)
             },
             openDelete(item){
+                //событие удаление и проброс выше
               this.$emit('Delete', item)
             },
         }
@@ -37,6 +39,7 @@
 
 <style scoped lang="sass">
 @import "../assets/vars"
+
 
 @media (max-width: 760px)
     .list
@@ -71,6 +74,8 @@
                     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr))
                     font-size: 1rem
                     opacity: .6
+                    div.desc_item:nth-child(n+2)
+                        display: none
             .flaticon-edit
                 grid-area: edit
             .flaticon-delete
@@ -140,6 +145,16 @@
                     font-size: 1rem
                     margin: 10px
                     opacity: .6
+                    div.desc_item:nth-child(n+3)
+                        display: none
+                    div.desc_item:nth-child(2n)
+                        &::after
+                            content: "..."
+                            display: block
+                            position: absolute
+                            top: 21px
+                            width: 20px
+                            height: 20px
             .flaticon-edit
                 grid-area: edit
             .flaticon-delete

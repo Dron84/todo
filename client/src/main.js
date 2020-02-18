@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import App from './App.vue'
 import Vuex from 'vuex'
-import {store} from './store/store'
-Vue.use(Vuex)
+import {store} from './store/store' //подключаем стор
+
+Vue.use(Vuex) //Заставляем использовать vuex
 Vue.config.productionTip = false
 Vue.prototype.$isEmpty = (object) => {
-    // console.log('object',object,'typeof', typeof object)
+    // Проверяем обект пустой ли он
     if (object === null || object === undefined) {
         return true
     } else {
@@ -16,7 +17,6 @@ Vue.prototype.$isEmpty = (object) => {
         }
     }
 }
-Vue.prototype.$api_url = 'http://localhost:3000'
 
 new Vue({
   render: h => h(App),

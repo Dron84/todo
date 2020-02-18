@@ -15,9 +15,6 @@
     export default {
         name: "edit",
         components:{add},
-        methods:{
-
-        },
         props:{
             task: {
                 name: {type: String},

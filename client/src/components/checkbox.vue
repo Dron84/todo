@@ -27,7 +27,9 @@
         },
         computed:{
             setCheck: {
+                //возвращаем входное значение
                 get(){return this.checked},
+                // пробрасываем значение для сохранения
                 set(val){this.$emit('value',val)}
             }
         }

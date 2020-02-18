@@ -36,13 +36,16 @@
         },
         methods:{
             selectColor(color){
+                // закрываем внизспабающий список и сохраняем измменения
                 this.showBox = false
                 this.selected = color
             },
         },
         computed:{
           selected:{
+              //превращаем текстовое поле в обект с удобо-читаемым названием
               get(){return this.list.filter(item=>item.color===this.color? true: false)[0]},
+              //проброс значения выше для изменения
               set(val){this.$emit('value', val.color)}
           }
         },
