@@ -1,4 +1,8 @@
 ### Всем Привет
+При использовании docker-compose достаточно ввести
+    
+    docker-compose up
+    
 Change server/.env db path
 
 По пути server/.env нужно ввести ваши данные подключения к БД
@@ -16,7 +20,7 @@ if you just clone the project run command bellow
 
 если толко сделали копию себе то запустите команду ниже
 
-    cd client && npm i && cd ../server && npm i && cd .. && npm run build --prefix client && npm run start --prefix server
+    cd server/client && npm i && cd ../server && npm i && cd .. && npm run build --prefix client && npm run start --prefix server
 
 если уже запкскали 
     
