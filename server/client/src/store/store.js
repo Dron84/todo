@@ -9,7 +9,7 @@ export const store = new Vuex.Store({
         todolist: null,
         modal: {
             data: {}
-        }
+        },
     },
     mutations: {
         modalData: (state,newValue)=>{

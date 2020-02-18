@@ -1,0 +1,20 @@
+version: "3"
+services:
+  mongo:
+    container_name: mongo
+    image: mongo
+    volumes:
+        - ./db:/data/db
+    ports:
+      - "27017:27017"
+  server:
+    build: server/
+    #command: node ./server.js #здесь можно перезаписать CMD из Dockerfile в /server
+    environment:
+      - MONGODB_PATH=mongodb://mongo:27017/todolist
+    ports:
+      - "3000:3000"
+    links:
+      - mongo
+    depends_on:
+      - mongo

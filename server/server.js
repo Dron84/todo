@@ -13,7 +13,7 @@ app.use((req, res, next) => {
     res.append('Access-Control-Allow-Headers', 'Content-Type');
     next();
 })
-app.use('/', express.static('../client/dist/')) // ренедрим клиентскую часть
+app.use('/', express.static('./client/dist/')) // ренедрим клиентскую часть
 
 app.get('/todolist', async (req,res)=>{
     //получаем список туду листа
@@ -46,6 +46,6 @@ app.delete('/todolist/:id', async (req,res)=>{
     }
 })
 
-app.listen(process.env.SERVER_PORT, () => {
-    console.log(`server start on ${process.env.SERVER_PORT} port`)
+app.listen(3000, () => {
+    console.log(`server start on http://localhost:3000 port`)
 })

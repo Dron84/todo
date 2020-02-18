@@ -121,52 +121,52 @@
 </script>
 
 <style lang="sass">
-    @import "assets/font/flaticon.css"
-    @import "assets/vars"
-    body
-        margin: 0
-        padding: 0
-        box-sizing: border-box
-    input
-        border-radius: 5px
-        height: 35px
-        margin: 10px 0
-        padding: 0 10px 0 10px
-        border: 1px solid #ccc
-        outline: none
-        &.err
-            border: 1px solid $pink
-    .btn
-        min-width: 100px
-        height: 35px
-        margin: 10px 5px
-        border: none
-        border-radius: 5px
-        outline: none
-        &:hover
-            cursor: pointer
-            color: white
-            opacity: .7
-    .btn-success
-        background-color: $green
-    .btn-error
+@import "assets/font/flaticon.css"
+@import "assets/vars"
+body
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+input
+    border-radius: 5px
+    height: 35px
+    margin: 10px 0
+    padding: 0 10px 0 10px
+    border: 1px solid #ccc
+    outline: none
+    &.err
+        border: 1px solid $pink
+.btn
+    min-width: 100px
+    height: 35px
+    margin: 10px 5px
+    border: none
+    border-radius: 5px
+    outline: none
+    &:hover
+        cursor: pointer
+        color: white
+        opacity: .7
+.btn-success
+    background-color: $green
+.btn-error
+    background-color: $pink
+.btn-danger
+    background-color: $accent_orange
+.btn-default
+    background-color: $default_bg
+    &:hover
+        color: black
+.close
+    justify-self: center
+    align-self: center
+    font-size: 1.5rem
+    padding: 5px 10px
+    border-radius: 5px
+    &:hover
         background-color: $pink
-    .btn-danger
-        background-color: $accent_orange
-    .btn-default
-        background-color: $default_bg
-        &:hover
-            color: black
-    .close
-        justify-self: center
-        align-self: center
-        font-size: 1.5rem
-        padding: 5px 10px
-        border-radius: 5px
-        &:hover
-            background-color: $pink
-            color: white
-            cursor: pointer
+        color: white
+        cursor: pointer
 .onHover
     cursor: pointer
 </style>
