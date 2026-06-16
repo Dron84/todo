@@ -1,11 +1,10 @@
 const
     express = require('express'),
-    bp = require('body-parser'),
     app = express(),
     todolistSchema = require('./model/todolist');
 
-app.use(express.json())  //заставляем использовать json
-app.use(bp.urlencoded({extended: false})) //парси тело запроса
+app.use(express.json())
+app.use(express.urlencoded({extended: false}))
 app.use((req, res, next) => {
     // добавления CROS на все запросы
     res.append('Access-Control-Allow-Origin', ['*']); //All site/address allow
